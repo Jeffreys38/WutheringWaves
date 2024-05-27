@@ -1,0 +1,234 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+/* SECTION CSS */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.btn {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transition: all ease 0.5s;
+}
+
+.btn-corner {
+    color: white;
+    padding: 8px;
+    border: 1px solid white;
+}
+
+.btn-corner:hover {
+    color: black;
+    background-color: white;
+}
+
+#btn-play {
+    background-image: url(../media/play-btn.png);
+    background-size: cover;
+
+    width: 70px;
+    height: 70px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    /* ALIGN CENTER */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-play::after {
+    content: "";
+    position: absolute;
+
+    height: 74px;
+    width: 74px;
+    background-image: url(../media/play.png);
+    background-size: cover;
+    
+    animation: spin 10s linear infinite;
+}
+
+.ico {
+    width: 30px;
+    cursor: pointer;
+}
+
+.item-row {
+    margin-left: 8px;
+}
+/* END SECTION CSS */
+
+#application {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 25px;
+}
+
+#header > div:last-child {
+    margin-right: 88px;
+}
+
+#header > div:last-child > :not(:first-child) {
+    margin-left: 10px;
+}
+
+#header #logo {
+    object-fit: cover;
+    transform: scale(0.85);
+}
+
+#waves {
+    border: 1px solid white;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#waves span {
+    display: inline-block;
+    background-color: yellow;
+    width: 2.2px;;
+}
+
+#waves #left,
+#waves #right {
+    height: 30%;
+}
+
+#waves #center {
+    height: 70%;
+}
+
+#bottom-box {
+    position: absolute;
+    bottom: 100px;
+    height: 120px;
+}
+
+#bottom-box > div:last-child {
+    height: 100%;
+}
+
+#wrap-qr {
+    border: 1px solid white;
+    padding: 5px;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#wrap-qr img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#wrap-global-download {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.global-download {
+    width: 164px;
+    height: 47px;
+}
+
+/* ANIMATION */
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+ 
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+/* END ANIMATION */

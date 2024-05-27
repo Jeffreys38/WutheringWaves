@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuthering Waves</title>
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <div id="application">
+        <!-- Background Video -->
+        <video muted autoplay loop>
+            <source src="./assets/media/kv1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Content -->
+        <div id="wrapper">
+            <div id="header">
+                <img id="logo" src="./assets/media/logo.png" alt="Wuthering Waves Logo">
+                <div class="d-flex align-items-center">
+                    <img class="ico" src="./assets/media/avatar.png" alt="User Account">
+                    <div id="waves">
+                        <span id="left"></span>
+                        <span id="center"></span>
+                        <span id="right"></span>
+                    </div>
+                    <img class="ico" src="./assets/media/earth.png" alt="Language">
+                    <button class="btn btn-corner">Offical Website</button>
+                </div>
+            </div>
+
+            <!-- Play Review -->
+            <button id="btn-play" class="btn"></button>
+
+            <div id="bottom-box" class="d-flex align-items-center justify-content-center w-100">
+                <div id="wrap-qr">
+                    <img src="./assets/media/qr.jpg" alt="QR Code">
+                </div>
+                <div id="wrap-global-download">
+                    <!-- ROW 1 -->
+                    <div class="d-flex align-items-center">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/appstore.png" alt="App Store">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/google.png" alt="Google Play">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/googleplay.png" alt="Google Play Game">
+                    </div>
+                    <!-- ROW 2 -->
+                    <div class="d-flex align-items-center">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/window.png" alt="App Store">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/epicstore.png" alt="Google Play">
+                        <img class="global-download item-row cursor-pointer" src="./assets/media/signup.png" alt="Google Play Game">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="sound" src="./assets/media/audio.mp3"></audio>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
