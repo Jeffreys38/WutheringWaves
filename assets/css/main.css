@@ -86,6 +86,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 9999999;
 
     /* ALIGN CENTER */
     display: flex;
@@ -138,6 +139,7 @@ video {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 9999999999;
 }
 
 #header {
@@ -148,7 +150,7 @@ video {
 }
 
 #header > div:last-child {
-    margin-right: 88px;
+    margin-right: 120px;
 }
 
 #header > div:last-child > :not(:first-child) {
@@ -188,7 +190,7 @@ video {
 #bottom-box {
     position: absolute;
     bottom: 100px;
-    height: 120px;
+    height: 133px;
 }
 
 #bottom-box > div:last-child {
@@ -198,8 +200,8 @@ video {
 #wrap-qr {
     border: 1px solid white;
     padding: 5px;
-    width: 120px;
-    height: 120px;
+    width: 133px;
+    height: 133px;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 10px;
 }
@@ -217,8 +219,81 @@ video {
 }
 
 .global-download {
-    width: 164px;
-    height: 47px;
+    width: 170px;
+    height: 55px;
+}
+
+#media-side {
+    position: absolute;
+    right: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+}
+
+#media__side-top {
+    background-image: url(../media/media_top.png);
+    width: 10px;
+    flex: 2;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#media__side-bottom {
+    background-image: url(../media/media-bottom.png);
+    width: 10px;
+    flex: 5;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+#media__content {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding: 7px;
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 60px;
+}
+
+#media__content .link:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+#media__content img {
+    width: 30px;
+}
+
+#btn-transfer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#btn-transfer-left{
+    background-image: url(../media/page-prev.png);
+    background-size: 100% 100%;
+    width: 30px;
+    height: 50px;
+}
+
+
+#btn-transfer-right {
+    background-image: url(../media/page-next.png);
+    background-size: 100% 100%;
+    width: 30px;
+    height: 50px;
+}
+
+#preview-video {
+    display: none;
+    z-index: -1;
 }
 
 /* ANIMATION */

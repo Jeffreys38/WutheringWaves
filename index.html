@@ -10,7 +10,7 @@
 <body>
     <div id="application">
         <!-- Background Video -->
-        <video muted autoplay loop>
+        <video id="js-video-default" muted autoplay loop>
             <source src="./assets/media/kv1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -33,6 +33,7 @@
 
             <!-- Play Review -->
             <button id="btn-play" class="btn"></button>
+            <video id="preview-video" playsinline="" webkit-playsinline="" x5-playsinline="" x-webkit-airplay="allow" x5-video-orientation="portraint" x5-video-player-type="h5" x5-video-player-fullscreen="true" preload="auto" controlslist="nodownload" loop="" __idm_id__="360458"><source data-v-4c7df961="" src="https://wutheringwaves.kurogames.com/website-preface/video/common/cg_en.mp4" type="video/mp4"></video>
 
             <div id="bottom-box" class="d-flex align-items-center justify-content-center w-100">
                 <div id="wrap-qr">
@@ -52,6 +53,41 @@
                         <img class="global-download item-row cursor-pointer" src="./assets/media/signup.png" alt="Google Play Game">
                     </div>
                 </div>
+            </div>
+
+            <!-- Media Side -->
+            <div id="media-side">
+                <div id="media__side-top"></div>
+                <div id="media__content">
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkM4ODA4ODM5OEY2QTExRUVCMDJBRDk1NkYzQzI2MzJBIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkM4ODA4ODM4OEY2QTExRUVCMDJBRDk1NkYzQzI2MzJBIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4wIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZCMjkwNkFEOEFBMjExRUVCQzU1QTIwQUExRjg5M0MwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZCMjkwNkFFOEFBMjExRUVCQzU1QTIwQUExRjg5M0MwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+1Q/DAAAABElJREFUeNrsmQdIVWEUx5+pZWZZlrShTIqGWEQItqhol4UNmkZme2eSDYr2JJq2d9GgRWVBNG1nk4ogrIimKNIwC7PxP/C/8HF59q733ed7wjvwo88+9X3nnvOd8z9Xn+zsbFtJtlK2Em5eB7wOOGl+hfy/Pwgy8PMF4JsLzlUJ5HL9y0wEAsEjkOOAr2CxhQeXz73O3/0DdDKbQl/AcPDXwIcmgzYWHN4H7AUt+fVEkOrwhxz0gbVgEh1JBO+UvYpgAygNXoNIJ9NpKR+G2EYwwZDXDhwoCx6CBuAi6KiLShJYwfV2MNLk4ceCFK5PgVjw24oqJHkYx8vagdFQbTW4ynUC6G7i8O0ZabEHYKDRwxsto3cZXrFloImyJx80jJdZi0LlIhw+Ahxn1ZP07AXyXNEHFoL7IADsY95r9kbJ12pgk8HfGQrOgmAWjW66O2apA7/4pH+CpnRINXHqKNf9wCAD5fI0qMUoDgZPXN2Jn4HZXEtFaqvbHw0+cC3VqWYhv8cXHARRRSmXVkmJNeAKD7EbVFD2cpTeIZ10B2u73haBGK5XFiHlLHHgDw8p9b4OWK/bP8+nL9YZjLFTLpOVcjnT6e5ncqCJ5xPWcv6ornfcA43Ad96ZDDqUyujdYfnMc9YBs2p0Jy+h2BZQ3U7vyAflwB46cZiHN1UuXSGnRwEJXwjvg5rvUnLncx0NbuvKZaYnzAOflBwX1Thet7+cylKsDLt5rNly6aqB5hgVpI2aqJGdLq0JvI/ghidOZJPBW17evbou/Yr7YrXBAk904DOrktT/5mCebn8XOKE0wJaeOBNfUOr/DNDKzoX/xCq0x+C4WuxDfTIHG+2Q5ZW9bCVK9cAqT3QghHVfLEzR+JqdA5uViHSx4kN9LHq1KOryJsdK1WKV/Ne+Tya8+hR+EdRQbo2Api4jmSIytT3l3lbOCJpJ9x1CeV6Ds6/bU2i9oi6X8+uhlBJVKDvULp1ORSo2APR3pwPTqDDFDoBZXD9SpERXO6p0MeWFjXK6mjvuQAznWUmhNL6xyNelVhq1kKROM/BC2Q/nfQiiSu1RnBGIYt77Uir31R1ekxJxfEUol3c/h3fNMhhBG99mJBSXAzLHnuShspgiWYV870swnesWYK5ufxsHG+0VTV1Xp5BI4mssf/kcShwJNLnAZyijJSqtwS1lvyp4zH8l5dpx8rM8An7M+QiWy3iD6vIv0yOHKbdfJyUylTd68o51qqtSaB2fuNgcVh2j9lGpVmF8OaDaafYMbehvbLUDybpyudTE3TkCDnE9AvTW7SfyYgdQS/lb5UAfsITrS4ooM2PjwPtCunQuu3QBZflsKy5xFA8dyKfTgvrfGetMYSeX+zKjqT6QKSyrBewh6WYdCKdAC2WZjKYTVliKkpL/s+eMxo+iplAwVWQoZ9qeFh5eLEkRfP+zhookcamcdpt5/07sdcDrQAm3fwIMAAX8EzBi0VnrAAAAAElFTkSuQmCC" alt="Twitter">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAiCAMAAAAJbCvNAAAAV1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////+ORg7oAAAAHHRSTlMA4DrKqPM0vBzawH/tqocg7unl0rWbem5iQywX30JO5gAAAIhJREFUOMvtkdsOgyAQRGnFQmltvV/3/7/TNRs1moVNNL55nkjmQCaD2mIb7SKkVDwfmOHzZMlj4T4vDCAINQbBDgaIwhmjOeFN+U/5eJDQS8LzoLB2+LMTaSQmweAx2TelKLBDCoR3ye9ZQe6QSS/YF5JT1k5nGxpKnPoWLheA6LxCFU243UeOASQhSDbACskAAAAASUVORK5CYII=" alt="Facebook">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAVCAYAAAAnzezqAAABk0lEQVRIicWWu0oDQRSGv4liFCGI4AU0lQgKCuITWKmVgoWgdlY+gvY22uhbaGcjIqiNnaUpFCwlRbDwEjQiXkZOPCPjkmJnk6wfTLIse+b/53LOjEGx1rpHeTcNjAGDQA+Q09YOZIEO/W/R7yX4C/gEXoE3bS/AE/AAlIBr4BS4qwqZX/kfA9baYWvthW0uFWvtkjfgPwaumyzuEBNTopvxPEwCI6SDLOFc1MB8SuKOiVozkCb5qIGhAHHZydu665PSGzXQF9CRpNeGztpBQgO5qIHugOCM5n8BWACWgdskLjIxvonDHjAObAGP/2FAKAPrwCzwHDeotYEGhBVgTfM8VQOjwK6eIUH4S1AOCHSFvAvYBC6TiAv+DJRcasRA8n9RN10+ibCelvjH8TEwExCcTSjsKBpj8v4SFAKC6xUXivLjGzhqQKchXEUNnIcWkTqQ29NJ1IC8lLJ6n4KBHWBfHmrdCQeAVS2t/UCnFha5D7Zp7ZDmzgPXhwxAOpEM+QDedbPKHbGiA7sBDoGzqrgxfAONtyf0r/Sk0wAAAABJRU5ErkJggg==" alt="YouTube">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAYCAMAAACsjQ8GAAAAgVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9d3yJTAAAAKnRSTlMAwjl9S0Y+MSn59O3UraidmIYN59zNyLmIU1ArIgjjpHZcVRsWEZSBQjslkhveAAAA9ElEQVQoz42S6ZaCMAxGQ4FSFkFUlEVcZ837P+C0TaZ2Rnv0/uGe5DvQNMDLzGl7Zh36dP7fTo8lIiqRjIlQBWJZJ+AT4T1brx/jI3rXf8fHXIFZBgK1e0GIt/AJiJYCm2BgbfsKmejwW49ytswETuSbPcDR2mKGa0XF2AQW5ML4WktpZKLi7naEAijMRSht9aBtRd/LV6bcaatsIHeD7pH4MCuzNmrruToBZMg0lxNbPLi7FRQII58FhDtD9XdjTUdP5VZRJfIzKmjibfuVdN4ysh1doB5ZyVROeuCG7l4AM5pf7gw3LuaXG8Dju27AZ1lLth+/lErAaH/BaAAAAABJRU5ErkJggg==" alt="Discord">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAbCAMAAAAqGX2oAAAAmVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VHQRUAAAAMnRSTlMACizs5tHLcUInFvDaxqZRN+nis56Sf3dWTkYeG/r339ZoZEs9wbeJe1wRDgb0mpiVhp2TKN8AAAEpSURBVCjPjdJnc4MwDAZgAWHvskJC9h5d7///cTWyOY7GvevzRTpLB7ZserHsOMyL4kBaEfJkZ7oQWtLoYOUQrMxDSBp7eBQcLtgSrUAaDow+2EgKFJq6AVtuNQKcu6ZhgYXKPI9emO3OQZ2apNUmb1BmSTopuVVKCwcT9oHayn3ytrYANphSS1F/ogr7zoJGuLzhQzSsQ6qhdaEZ+pGsXbCrPw/7+D73GzA3jERDBinhOQs7kZSQjnyxYN8iPYrIk7qC3dR0mWWS4fAJDfJzsAc3BFBOMxnzE5Tl8ET+sBkmCWkctYoNKbKy6u5xH+MgWMs+GvgrXnCOFGRZQFkM5tPYob6+rdO0ttV/JrdufOKX8kFTZmWNVetL92ieXlOe4/hcNp5B//cD+T1KKJB6MP8AAAAASUVORK5CYII=" alt="Reddit">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAWCAMAAACWh252AAAAnFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TINBkAAAAM3RSTlMA8Oro+qyHfWLgwYIg7NvQxaB4XkUxKhP18ufVy7GVb2lBOwkEvbipmI1OPjYlGA63WlJk6oQ+AAABCUlEQVQoz22R6ZKCMBAGR0AQFhFF8T7wvt3dfv9320qQ2hHtH5n6Mp3KpCJPbsF8lriOYZKkh9VDXulRw/l96++Ovv9l8E/dFOirfgxRLJqBi6uiT0M0m6sMQG18061aQ7N2CMTVwozA1nXT8ZLTUEIWEmkhYWnKEks735xF9loIWZnz4PayBeVAcy04tOzNoZmgj72wqYW2EWI429Sl81G4wN2mjMlHIYerTT7TuuDSsmtkwr3BUQnqFRns+3k2gbj+iim9crqSHxN2WkjxbV2GQFp+Y0cLB6LqF4ublHhaaEEhrwRoYTuGYPDYVnG4XsBM+xcM3qhhGHkAo1g0xXTs8Y83jvJn5w+4bCXbquMs1wAAAABJRU5ErkJggg==" alt="Instagram">
+                    </a>
+                    <a class="link" href="#">
+                        <img data-v-e2d79389="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAAAdVBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////li2ZAAAAAJnRSTlMALcPSMfulmR3z5Nl07YiBbhK/uraEemFURz85JBUOB83Jr2ssFnljmlEAAADKSURBVCjPndLZFoIgEAZgUkgU9yWXTFvn/R8x4EhnIuSi/4qZDzgcgFjhkcyJ7OUAMomfYfZz7ueYehkS6mWIi5ebTViYutnk+B9fO2ZxlTZJFmwcEN6FmB+xaoeG9QL6NBoBWIxTgI8p83KrLTqsi4u5Vn1FLu63fXe4wC9MfzhXHfO9JlXUmEvVabciRbeJ9mNnPV4SVZQER6hWNsrRfNNT+Rf3oCPuAXM+ZA04Gbf4IpDG8hS2Nx8Vzj86BBrDciXuVNMwcrv5BhRtKHJ+Iws3AAAAAElFTkSuQmCC" alt="TikTok">
+                    </a>
+                </div>
+                <div id="media__side-bottom"></div>
+            </div>
+
+            <!-- Button Transfer Page -->
+            <div id="btn-transfer">
+                <button id="btn-transfer-left" class="btn"></button>
+                <button id="btn-transfer-right" class="btn"></button>
             </div>
         </div>
     </div>
